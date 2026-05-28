@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ground Station Suite — DynamiX-Labs</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-header {
+      padding: 180px 24px 80px;
+      text-align: center;
+      background: var(--gradient-hero);
+      border-bottom: var(--border-subtle);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      transition: var(--transition-fast);
+    }
+    .back-link:hover { color: #fff; transform: translateX(-4px); }
+    .project-detail-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .project-detail-content h2 {
+      font-size: 2rem;
+      margin-top: 60px;
+      margin-bottom: 24px;
+      color: var(--accent-cyan);
+    }
+    .project-detail-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .project-detail-content ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 40px;
+    }
+    .project-detail-content li {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+    .project-detail-content li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+    .arch-diagram {
+      margin: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .arch-layer {
+      display: flex;
+      background: var(--bg-secondary);
+      border: var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+    .arch-layer:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    .arch-layer::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gradient-primary);
+    }
+    .layer-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-tertiary);
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      min-width: 80px;
+      height: 80px;
+      margin-right: 24px;
+      border: var(--border-subtle);
+    }
+    .layer-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .layer-content p {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .layer-repo {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent-purple);
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+    .layer-repo:hover {
+      color: var(--accent-cyan);
+    }
+    .arch-connector {
+      width: 2px;
+      height: 40px;
+      background: var(--border-subtle);
+      margin: 0;
+      position: relative;
+    }
+    .arch-connector::after {
+      content: '↓';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--border-subtle);
+      font-size: 12px;
+    }
+    @media (max-width: 768px) {
+      .arch-layer { flex-direction: column; }
+      .layer-badge { margin-right: 0; margin-bottom: 16px; width: 100%; height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="DynamiX-Labs Logo">
+        <span class="nav-brand-text">Dynami<span>X</span>-Labs</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">← Back to Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="project-header">
+    <a href="index.html" class="back-link">← Back to Projects</a>
+    <div class="project-status active" style="margin: 0 auto 16px; width: fit-content;"><span class="status-dot"></span> Active</div>
+    <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">Ground Station <span class="gradient-text">Suite</span></h1>
+    <div class="project-tech" style="justify-content: center; margin-top: 24px;">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">FastAPI</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">SoapySDR</span>
+      <span class="tech-tag">Docker</span>
+    </div>
+  </header>
+
+  <main class="project-detail-content">
+    <h2>System Overview</h2>
+    <p>
+      The Ground Station Suite is an end-to-end software ecosystem designed for autonomous satellite tracking, real-time Digital Signal Processing (DSP), and robust telemetry decoding. Originally built to bridge the gap between expensive proprietary mission control software and fragmented open-source scripts, this suite provides a cohesive, production-grade platform.
+    </p>
+    <p>
+      By integrating direct SDR hardware interfacing (via SoapySDR) with a high-performance Python/C++ backend, the system achieves sub-millisecond latency for IQ data processing. The React-based frontend visualizes the RF spectrum, tracks satellite passes in real-time on a 3D globe, and logs all decoded telemetry into a persistent PostgreSQL database.
+    </p>
+
+
+    <div style="margin: 40px 0;">
+      <img src="assets/screenshots/flow-diagram.png" alt="Ground Station Flow Diagram" style="width: 100%; border-radius: var(--radius-md); border: var(--border-subtle); box-shadow: 0 4px 30px rgba(0, 212, 255, 0.15);">
+    </div>
+
+
+    <h2>Advanced Capabilities</h2>
+    <p>
+      Beyond standard tracking, the Ground Station Suite supports <strong>scheduled automated observations</strong>. Operators can enqueue future satellite passes across multiple connected SDRs, and the system will autonomously wake up, steer the antennas, tune the radios, account for Doppler, record the IQ data in SigMF format, and process the telemetry stream — entirely hands-free.
+    </p>
+
+    <div style="margin-top: 60px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="https://github.com/DynamiX-Labs/Ground-Station-Suite" target="_blank" rel="noopener" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;margin-right:8px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        View GitHub Repository
+      </a>
+      <a href="https://github.com/DynamiX-Labs/Ground-Station-Suite/issues" target="_blank" rel="noopener" class="btn btn-secondary">
+        Browse Open Issues
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-copyright">© 2026 DynamiX-Labs. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

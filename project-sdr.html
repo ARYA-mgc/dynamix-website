@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDR Hardware Benchmark — DynamiX-Labs</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-header { padding: 180px 24px 80px; text-align: center; background: var(--gradient-hero); border-bottom: var(--border-subtle); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 24px; transition: var(--transition-fast); }
+    .back-link:hover { color: #fff; transform: translateX(-4px); }
+    .project-detail-content { max-width: 900px; margin: 0 auto; padding: 80px 24px; }
+    .project-detail-content h2 { font-size: 2rem; margin-top: 60px; margin-bottom: 24px; color: var(--accent-cyan); }
+    .project-detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px; }
+    .project-detail-content ul { list-style: none; padding: 0; margin-bottom: 40px; }
+    .project-detail-content li { font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 12px; padding-left: 24px; position: relative; }
+    .project-detail-content li::before { content: '›'; position: absolute; left: 0; color: var(--accent-blue); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="DynamiX-Labs Logo"><span class="nav-brand-text">Dynami<span>X</span>-Labs</span>
+      </a>
+      <div class="nav-links"><a href="index.html">← Back to Home</a></div>
+    </div>
+  </nav>
+
+  <header class="project-header">
+    <a href="index.html" class="back-link">← Back to Projects</a>
+    <div class="project-status active" style="margin: 0 auto 16px; width: fit-content;"><span class="status-dot"></span> Active</div>
+    <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">SDR Hardware <span class="gradient-text">Benchmark</span></h1>
+    <div class="project-tech" style="justify-content: center; margin-top: 24px;">
+      <span class="tech-tag">Python</span><span class="tech-tag">GNU Radio</span><span class="tech-tag">SoapySDR</span><span class="tech-tag">NumPy</span>
+    </div>
+  </header>
+
+  <main class="project-detail-content">
+    <h2>Project Overview</h2>
+    <p>
+      The SDR Hardware Benchmark suite is a rigorous, automated testing framework designed to evaluate the true operational capabilities of Software Defined Radios (SDRs) under high-stress aerospace and IoT communication loads. It measures critical metrics like throughput, latency, zero-copy buffer efficiency, and sustained sample-drop ratios.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0;">
+      <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-md); border: var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+        <img src="assets/screenshots/sdr-waterfall.jpg" alt="SDR Waterfall" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: 8px; aspect-ratio: 4/3; object-fit: cover;">
+        <p style="margin: 0; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">High-Resolution Waterfall</p>
+      </div>
+      <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-md); border: var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+        <img src="assets/screenshots/spectrum-peak.jpg" alt="Spectrum Analysis" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: 8px; aspect-ratio: 4/3; object-fit: cover;">
+        <p style="margin: 0; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">Peak Spectrum Analysis</p>
+      </div>
+      <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-md); border: var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+        <img src="assets/screenshots/packet-decode.png" alt="Packet Decode" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: 8px; aspect-ratio: 4/3; object-fit: cover;">
+        <p style="margin: 0; font-size: 0.9rem; text-align: center; color: var(--text-secondary);">Real-Time Packet Decode</p>
+      </div>
+    </div>
+
+    <h2>Methodology</h2>
+    <ul>
+      <li><strong>Load Testing:</strong> Injects high-bandwidth artificial noise and complex modulated signals to test the maximum USB/PCIe bus throughput of RTL-SDR, HackRF, PlutoSDR, LimeSDR, and USRP hardware.</li>
+      <li><strong>Signal Integrity:</strong> Evaluates Signal-to-Noise Ratio (SNR) and Error Vector Magnitude (EVM) degradation over time as device temperatures rise during extended operation.</li>
+      <li><strong>Compute Profiling:</strong> Integrates with <code>perf</code> and <code>nvtop</code> to measure the CPU and GPU processing overhead required to acquire and format the raw IQ bitstreams before DSP begins.</li>
+    </ul>
+
+    <h2>Impact</h2>
+    <p>
+      By publishing unbiased, reproducible benchmark data, this project helps researchers and engineers select the appropriate RF hardware for their specific latency and bandwidth constraints, preventing critical dropouts during high-stakes satellite passes or dense IoT deployments.
+    </p>
+
+    <div style="margin-top: 60px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="https://github.com/DynamiX-Labs/SDR-Hardware-Benchmark" target="_blank" rel="noopener" class="btn btn-primary">View GitHub Repository</a>
+      <a href="https://github.com/DynamiX-Labs/SDR-Hardware-Benchmark/issues" target="_blank" rel="noopener" class="btn btn-secondary">Browse Open Issues</a>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-copyright">© 2026 DynamiX-Labs. All rights reserved.</div></div></footer>
+</body>
+</html>

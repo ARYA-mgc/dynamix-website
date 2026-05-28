@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CubeSat Reaction Wheel — DynamiX-Labs</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-header { padding: 180px 24px 80px; text-align: center; background: var(--gradient-hero); border-bottom: var(--border-subtle); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 24px; transition: var(--transition-fast); }
+    .back-link:hover { color: #fff; transform: translateX(-4px); }
+    .project-detail-content { max-width: 900px; margin: 0 auto; padding: 80px 24px; }
+    .project-detail-content h2 { font-size: 2rem; margin-top: 60px; margin-bottom: 24px; color: var(--accent-cyan); }
+    .project-detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px; }
+    .project-detail-content ul { list-style: none; padding: 0; margin-bottom: 40px; }
+    .project-detail-content li { font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 12px; padding-left: 24px; position: relative; }
+    .project-detail-content li::before { content: '›'; position: absolute; left: 0; color: var(--accent-blue); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="DynamiX-Labs Logo"><span class="nav-brand-text">Dynami<span>X</span>-Labs</span>
+      </a>
+      <div class="nav-links"><a href="index.html">← Back to Home</a></div>
+    </div>
+  </nav>
+
+  <header class="project-header">
+    <a href="index.html" class="back-link">← Back to Projects</a>
+    <div class="project-status active" style="margin: 0 auto 16px; width: fit-content;"><span class="status-dot"></span> Active</div>
+    <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">CubeSat <span class="gradient-text">ADCS</span></h1>
+    <div class="project-tech" style="justify-content: center; margin-top: 24px;">
+      <span class="tech-tag">MATLAB</span><span class="tech-tag">Simulink</span><span class="tech-tag">React</span><span class="tech-tag">C/C++</span>
+    </div>
+  </header>
+
+  <main class="project-detail-content">
+    <h2>System Overview</h2>
+    <p>
+      This project encompasses the full mechanical design, firmware development, and simulation environment for a 1U CubeSat Attitude Determination and Control System (ADCS). The physical mechanism utilizes a custom, origami-inspired reaction wheel assembly to stabilize and point the satellite.
+    </p>
+
+    <h2>Control Theory & Simulation</h2>
+    <ul>
+      <li><strong>Quaternion Dynamics:</strong> Mathematical modeling completely avoids Euler angle gimbal lock, allowing for continuous and complex tumbling recovery maneuvers.</li>
+      <li><strong>PID Autotuning:</strong> The Simulink model features sophisticated PID blocks with anti-windup clamping to prevent motor saturation during aggressive orientation changes.</li>
+      <li><strong>State Estimation:</strong> An Extended Kalman Filter (EKF) aggressively filters noisy IMU and sun sensor data to provide a clean, accurate orientation vector to the flight computer.</li>
+    </ul>
+
+    <h2>Web-Based HIL Environment</h2>
+    <p>
+      To validate the firmware before flashing to the physical hardware, we built a React + Three.js Hardware-In-The-Loop (HIL) simulator. The embedded C++ firmware runs identically on the host machine, receiving simulated IMU packets via serial, and returning motor PWM commands. The web dashboard visualizes the resulting 3D rotation at 60fps alongside live angular velocity graphs.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 40px 0;">
+      <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-md); border: var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+        <img src="assets/screenshots/cubesat-attitude-sim.jpg" alt="CubeSat Attitude Simulation" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: 12px; aspect-ratio: 4/3; object-fit: cover;">
+        <p style="margin: 0; font-size: 0.95rem; text-align: center; color: var(--text-secondary);">3D Attitude Simulation with Live Telemetry</p>
+      </div>
+      <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-md); border: var(--border-subtle); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
+        <img src="assets/screenshots/cubesat-pid-controller.png" alt="PID Autotuning" style="width: 100%; border-radius: var(--radius-sm); margin-bottom: 12px; aspect-ratio: 4/3; object-fit: contain; background: #fff;">
+        <p style="margin: 0; font-size: 0.95rem; text-align: center; color: var(--text-secondary);">Simulink PID Control Diagram</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 60px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="https://github.com/DynamiX-Labs/CubeSat-Reaction-wheel-self-balance" target="_blank" rel="noopener" class="btn btn-primary">View GitHub Repository</a>
+      <a href="https://github.com/DynamiX-Labs/CubeSat-Reaction-wheel-self-balance/issues" target="_blank" rel="noopener" class="btn btn-secondary">Browse Open Issues</a>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-copyright">© 2026 DynamiX-Labs. All rights reserved.</div></div></footer>
+</body>
+</html>

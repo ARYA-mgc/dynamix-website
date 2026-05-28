@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DynamiX-Labs — R&D in Embedded Systems, Simulation, Avionics & IoT</title>
+  <meta name="description" content="DynamiX-Labs is a student-led R&D organization working on embedded systems, simulation, avionics, control engineering, and IoT. Open-source hardware and software solutions.">
+  <meta name="keywords" content="DynamiX Labs, embedded systems, avionics, CubeSat, SDR, ground station, control engineering, IoT, simulation, software development">
+  <meta name="author" content="DynamiX-Labs">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DynamiX-Labs — Embedded Systems, Avionics & IoT R&D">
+  <meta property="og:description" content="Student-led R&D org building open-source tools for embedded systems, aerospace, simulation, and IoT.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DynamiX-Labs — Embedded Systems, Avionics & IoT R&D">
+  <meta name="twitter:description" content="Open-source R&D across embedded systems, aerospace, control engineering, and IoT.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="nav-brand">
+        <img src="assets/logo.png" alt="DynamiX-Labs Logo">
+        <span class="nav-brand-text">Dynami<span>X</span>-Labs</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#focus">Domains</a>
+        <a href="#projects">Projects</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#contribute">Contribute</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/DynamiX-Labs" target="_blank" rel="noopener" class="nav-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#focus">Domains</a>
+    <a href="#projects">Projects</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#contribute">Contribute</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/DynamiX-Labs" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="hero-canvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-gradient"></div>
+
+    <div class="hero-content">
+      <img src="assets/logo.png" alt="DynamiX-Labs" class="hero-logo">
+      <h1 class="hero-title">
+        Dynami<span class="highlight">X</span>-Labs
+      </h1>
+      <p class="hero-tagline">INNOVATE • SIMULATE • ENGINEER • INSPIRE</p>
+      <p class="hero-description">
+        Research and development in <strong>embedded systems</strong>, <strong>simulation</strong>, 
+        <strong>avionics</strong>, <strong>control engineering</strong>, and <strong>IoT</strong>. 
+        Building open-source hardware &amp; software that ships.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Explore Projects
+        </a>
+        <a href="https://github.com/DynamiX-Labs" target="_blank" rel="noopener" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="chevron"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+       ============================================================ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">Engineering at <br><span class="gradient-text">Every Layer</span></h2>
+          <p>
+            DynamiX Labs is a student-led research and development organization 
+            focused on building production-grade open-source tools across <strong>embedded systems</strong>, 
+            <strong>digital signal processing</strong>, <strong>simulation</strong>, <strong>avionics</strong>, 
+            and <strong>IoT</strong>.
+          </p>
+          <p>
+            Our work spans from low-level microcontroller firmware and origami-based 
+            mechanical structures to high-fidelity HIL simulation, SDR-based RF 
+            communication, and web-based telemetry dashboards. We don't just prototype — 
+            we ship software that people use.
+          </p>
+          <p>
+            Every project in our organization follows rigorous engineering practices: 
+            automated testing, CI/CD pipelines, proper documentation, and code review. 
+            We build tools we'd want to use ourselves.
+          </p>
+        </div>
+
+        <div class="stats-grid reveal-right stagger-children">
+          <div class="stat-card">
+            <div class="stat-number" data-count="4" data-suffix="+">0</div>
+            <div class="stat-label">Active Repositories</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="10">0</div>
+            <div class="stat-label">Contributors</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="5">0</div>
+            <div class="stat-label">Engineering Domains</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="100" data-suffix="%">0</div>
+            <div class="stat-label">Open Source</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOCUS AREAS SECTION
+       ============================================================ -->
+  <section class="focus-areas" id="focus">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">What We Do</div>
+        <h2 class="section-title">Core <span class="gradient-text">Domains</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          We work across electronics, software, and systems engineering — from silicon to cloud.
+        </p>
+      </div>
+
+      <div class="focus-grid stagger-children">
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+          </div>
+          <h3>Embedded Systems</h3>
+          <p>Microcontroller firmware (STM32, ESP32, RP2040), sensor fusion, motor drivers, real-time OS, and hardware abstraction layers for flight-critical and IoT hardware.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="3"></circle>
+              <line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line>
+              <line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line>
+            </svg>
+          </div>
+          <h3>Control Engineering</h3>
+          <p>Non-linear control strategies, reaction wheel actuation, EKF/UKF state estimation, PID autotuning, and attitude determination and control systems (ADCS).</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+              <line x1="12" y1="22" x2="12" y2="15.5"></line>
+              <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+            </svg>
+          </div>
+          <h3>Simulation &amp; HIL</h3>
+          <p>Hardware-in-the-loop architectures, quaternion rigid-body dynamics, orbital propagation (SGP4), 3D visualization, and disturbance injection for validation.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1.5 12.5L5.57 8.42a8 8 0 0 1 12.86 0L22.5 12.5"></path>
+              <path d="M5.5 16.5l2.47-2.48a5 5 0 0 1 8.06 0L18.5 16.5"></path>
+              <line x1="12" y1="20" x2="12.01" y2="20"></line>
+            </svg>
+          </div>
+          <h3>RF &amp; SDR</h3>
+          <p>Software Defined Radio integration, Doppler tracking, signal demodulation (FM/SSB/AM/GMSK), spectral analysis, and distributed ground station networks.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h3>IoT &amp; Telemetry</h3>
+          <p>Real-time telemetry pipelines, WebSocket streaming, LoRa/NRF24 communication, MQTT brokers, sensor networks, and remote monitoring dashboards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECTS SECTION
+       ============================================================ -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Repositories</div>
+        <h2 class="section-title">Our <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Every repository is open source, documented, and actively maintained. Click through to explore the code.
+        </p>
+      </div>
+
+      <div class="projects-list">
+
+        <!-- ====== Project 1: Ground Station Suite ====== -->
+        <article class="project-card reveal" id="project-gss">
+          <div class="project-images">
+            <img src="assets/screenshots/tracking-console.png" alt="Satellite Tracking Console" class="active" loading="lazy">
+            <img src="assets/screenshots/waterfall-spectrum.png" alt="Waterfall Spectrum" loading="lazy">
+            <img src="assets/screenshots/multi-target.png" alt="Multi-Target Tracking" loading="lazy">
+            <img src="assets/screenshots/pass-schedule.png" alt="Pass Schedule" loading="lazy">
+            <div class="carousel-dots">
+              <button class="carousel-dot active" aria-label="Slide 1"></button>
+              <button class="carousel-dot" aria-label="Slide 2"></button>
+              <button class="carousel-dot" aria-label="Slide 3"></button>
+              <button class="carousel-dot" aria-label="Slide 4"></button>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-status active"><span class="status-dot"></span> Active</div>
+            <h3>Ground Station Suite</h3>
+            <p>
+              End-to-end ground station software for autonomous satellite tracking, 
+              real-time DSP, and telemetry decoding. This is our flagship repo — a complete 
+              multi-layer ecosystem running from SDR hardware to a React dashboard.
+            </p>
+            <ul class="project-features">
+              <li>Multi-target tracking with SGP4 orbital propagation &amp; TLE auto-update</li>
+              <li>Automated Az/El antenna rotator control via Hamlib</li>
+              <li>Live waterfall spectrum display with configurable FFT engine</li>
+              <li>Multi-VFO baseband demodulation — FM, SSB, AM, GMSK, BPSK</li>
+              <li>AX.25/CSP/CCSDS frame synchronizer &amp; telemetry parser</li>
+              <li>IQ recording &amp; playback in SigMF format</li>
+              <li>Scheduled automated observations with multi-SDR support</li>
+              <li>Full duplex TX/RX with self-interference cancellation</li>
+              <li>AI-powered audio transcription (Gemini Live / Deepgram)</li>
+              <li>React + Material-UI responsive dashboard via WebSockets</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Socket.IO</span>
+              <span class="tech-tag">Leaflet</span>
+              <span class="tech-tag">SoapySDR</span>
+              <span class="tech-tag">SQLAlchemy</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+            <div class="project-meta">
+              <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> GPL v3</span>
+              <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> Multi-arch Docker</span>
+            </div>
+            <div class="project-links">
+              <a href="project-gss.html" class="project-link github">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                View Details
+              </a>
+              <a href="https://github.com/DynamiX-Labs/Ground-Station-Suite/issues" target="_blank" rel="noopener" class="project-link issues">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Issues
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ====== Project 2: SDR Hardware Benchmark ====== -->
+        <article class="project-card reveal" id="project-sdr">
+          <div class="project-images">
+            <img src="assets/screenshots/sdr-waterfall.jpg" alt="SDR Waterfall" class="active" loading="lazy">
+            <img src="assets/screenshots/spectrum-peak.jpg" alt="Spectrum Analysis" loading="lazy">
+            <img src="assets/screenshots/packet-decode.png" alt="Packet Decode" loading="lazy">
+            <div class="carousel-dots">
+              <button class="carousel-dot active" aria-label="Slide 1"></button>
+              <button class="carousel-dot" aria-label="Slide 2"></button>
+              <button class="carousel-dot" aria-label="Slide 3"></button>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-status active"><span class="status-dot"></span> Active</div>
+            <h3>SDR Hardware Benchmark</h3>
+            <p>
+              Benchmarking framework for evaluating SDR hardware under real-world aerospace 
+              and IoT communication loads. Measures what matters: dropped samples, CPU load, 
+              throughput, SNR, and EVM — so you pick the right radio for your use case.
+            </p>
+            <ul class="project-features">
+              <li>Throughput and latency profiling across SDR device families</li>
+              <li>CPU &amp; GPU load measurement during IQ acquisition</li>
+              <li>Sample drop ratio validation under sustained load</li>
+              <li>SNR and EVM comparison across RTL-SDR, HackRF, PlutoSDR, USRP</li>
+              <li>Zero-copy transfer validation and memory bus profiling</li>
+              <li>JSON + CSV report generation for offline analysis</li>
+              <li>Integration with Ground Station Suite L0 layer</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">GNU Radio</span>
+              <span class="tech-tag">SoapySDR</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">RTL-SDR</span>
+              <span class="tech-tag">HackRF</span>
+              <span class="tech-tag">USRP/UHD</span>
+            </div>
+            <div class="project-links">
+              <a href="project-sdr.html" class="project-link github">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                View Details
+              </a>
+              <a href="https://github.com/DynamiX-Labs/SDR-Hardware-Benchmark/issues" target="_blank" rel="noopener" class="project-link issues">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Issues
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ====== Project 3: CubeSat Reaction Wheel Self-Balance ====== -->
+        <article class="project-card reveal" id="project-cubesat">
+          <div class="project-images">
+            <img src="assets/screenshots/cubesat-attitude-sim.jpg" alt="CubeSat Attitude Simulation — 3D visualization with angular velocity plots" class="active" loading="lazy">
+            <img src="assets/screenshots/cubesat-pid-controller.png" alt="Simulink PID Autotuning Controller Block Diagram" loading="lazy">
+            <div class="carousel-dots">
+              <button class="carousel-dot active" aria-label="Slide 1"></button>
+              <button class="carousel-dot" aria-label="Slide 2"></button>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-status active"><span class="status-dot"></span> Active</div>
+            <h3>CubeSat Reaction Wheel Self-Balance</h3>
+            <p>
+              Full 1U CubeSat attitude determination and control system. From origami-inspired 
+              mechanical frames to embedded PID controllers — and a complete web-based HIL 
+              simulator with 3D visualization so you can test without hardware.
+            </p>
+            <ul class="project-features">
+              <li>Quaternion-based rigid body dynamics — no gimbal lock</li>
+              <li>Extended Kalman Filter (EKF) for state estimation</li>
+              <li>PID controller with anti-windup and torque saturation</li>
+              <li>Custom reaction wheel assembly design (origami frame)</li>
+              <li>React + Three.js web simulation running at 60fps</li>
+              <li>MATLAB/Simulink offline analysis scripts</li>
+              <li>Sensor noise injection and fault simulation</li>
+              <li>LoRa telemetry link with packet loss modeling</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-tag">MATLAB</span>
+              <span class="tech-tag">Simulink</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Three.js</span>
+              <span class="tech-tag">Zustand</span>
+              <span class="tech-tag">C/C++</span>
+            </div>
+            <div class="project-meta">
+              <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> MIT License</span>
+            </div>
+            <div class="project-links">
+              <a href="project-cubesat.html" class="project-link github">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                View Details
+              </a>
+              <a href="https://github.com/DynamiX-Labs/CubeSat-Reaction-wheel-self-balance/issues" target="_blank" rel="noopener" class="project-link issues">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Issues
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ====== Project 4: YAPEX Protocol ====== -->
+        <article class="project-card no-image reveal" id="project-yapex">
+          <div class="project-info">
+            <div class="project-status dev"><span class="status-dot"></span> In Development</div>
+            <h3>YAPEX Protocol</h3>
+            <p>
+              Next-generation communication protocol for rocket and satellite inter-system 
+              telemetry. Think MAVLink, but designed from the ground up for deterministic 
+              timing, low-latency data exchange, and high-reliability links between flight 
+              computers, sensor arrays, and ground stations.
+            </p>
+            <ul class="project-features">
+              <li>Deterministic packet scheduling with bounded latency</li>
+              <li>CRC-16 integrity verification on every frame</li>
+              <li>Compact binary encoding optimized for embedded targets</li>
+              <li>Multi-bus support: UART, SPI, CAN, and Ethernet</li>
+              <li>Built-in heartbeat and connection health monitoring</li>
+              <li>Message definition via schema files (code generation)</li>
+              <li>Designed for STM32, ESP32, and Linux targets</li>
+            </ul>
+            <div class="project-links">
+              <a href="project-yapex.html" class="project-link github">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                View Details
+              </a>
+              <a href="https://github.com/DynamiX-Labs/YAPEX/issues" target="_blank" rel="noopener" class="project-link issues">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Issues
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTRIBUTE SECTION
+       ============================================================ -->
+  <section class="contribute" id="contribute">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Open Source</div>
+        <h2 class="section-title">Get <span class="gradient-text">Involved</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Every repo has a CONTRIBUTING.md. We review PRs promptly and welcome first-time contributors.
+        </p>
+      </div>
+
+      <div class="contribute-grid stagger-children">
+        <div class="contribute-card">
+          <div class="contribute-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <h4>Report Issues</h4>
+          <p>Found a bug or have a feature request? Open an issue on the relevant repo. We use GitHub Issues for all tracking — label your issue clearly and include reproduction steps.</p>
+          <a href="https://github.com/DynamiX-Labs/Ground-Station-Suite/issues" target="_blank" rel="noopener" class="contribute-link">Browse Open Issues →</a>
+        </div>
+
+        <div class="contribute-card">
+          <div class="contribute-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="3" x2="6" y2="15"></line>
+              <circle cx="18" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M18 9a9 9 0 0 1-9 9"></path>
+            </svg>
+          </div>
+          <h4>Submit Pull Requests</h4>
+          <p>Fork the repo, create a branch, write your code, and open a PR. We follow conventional commits and require passing CI checks before merge. Check each repo's CONTRIBUTING.md for guidelines.</p>
+          <a href="https://github.com/DynamiX-Labs" target="_blank" rel="noopener" class="contribute-link">View Our Repos →</a>
+        </div>
+
+        <div class="contribute-card">
+          <div class="contribute-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h4>Collaborate</h4>
+          <p>We're looking for contributors with experience in embedded firmware, DSP, control theory, React/TypeScript, or RF engineering. Reach out via email to discuss collaboration opportunities.</p>
+          <a href="mailto:cubedynamics.10@gmail.com" class="contribute-link">Contact Us →</a>
+        </div>
+
+        <div class="contribute-card">
+          <div class="contribute-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          </div>
+          <h4>Documentation</h4>
+          <p>Good docs make good projects. Help us improve READMEs, write tutorials, add API documentation, or create example configurations. Every repo has a DEVELOPMENT.md to get you started.</p>
+          <a href="https://github.com/DynamiX-Labs" target="_blank" rel="noopener" class="contribute-link">Read the Docs →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ACHIEVEMENTS SECTION
+       ============================================================ -->
+  <section class="achievements" id="achievements" style="padding: 100px 0;">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Awards & Recognition</div>
+        <h2 class="section-title">Our <span class="gradient-text">Achievements</span></h2>
+      </div>
+
+      <div class="project-card reveal" style="grid-template-columns: 1fr; margin-top: 40px; border-color: rgba(0, 212, 255, 0.4); box-shadow: 0 4px 30px rgba(0, 212, 255, 0.15); padding: 48px;">
+        <div class="project-info" style="align-items: center; text-align: center;">
+          <div class="project-status active" style="margin-bottom: 8px;"><span class="status-dot"></span> 1st Place Winner</div>
+          <h3 style="font-size: 2.2rem; margin-bottom: 8px;">NIT Pragyan'26 Space Track — Ingenium</h3>
+          <p style="font-size: 1.2rem; color: var(--accent-cyan); font-family: var(--font-mono); margin-bottom: 24px;">February 22, 2026 | Prize: ₹30,000 INR</p>
+          <p style="max-width: 700px; margin: 0 auto 32px;">
+            DynamiX-Labs secured 1st Place at the NIT Pragyan'26 Space Track (Ingenium) for our CubeSat ADCS project. We showcased our hardware-in-the-loop simulation, custom reaction wheel design, and aerospace embedded control systems.
+          </p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; width: 100%;">
+          <img src="assets/screenshots/our-team.jpg" alt="DynamiX-Labs team at NIT Pragyan Ingenium" style="width: 100%; border-radius: var(--radius-md); border: var(--border-subtle); aspect-ratio: 4/3; object-fit: cover;">
+          <img src="assets/screenshots/during-jury.jpg" alt="Presenting CubeSat project to judges" style="width: 100%; border-radius: var(--radius-md); border: var(--border-subtle); aspect-ratio: 4/3; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TEAM SECTION
+       ============================================================ -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Contributors</div>
+        <h2 class="section-title">Our <span class="gradient-text">Team</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Engineers and researchers across embedded, controls, DSP, and software.
+        </p>
+      </div>
+
+      <div class="team-grid stagger-children">
+        <div class="team-card">
+          <img src="https://github.com/ARYA-mgc.png" alt="ARYA MGC" class="team-avatar" loading="lazy">
+          <h4>ARYA M G C</h4>
+          <p class="team-role">System Architecture &amp; Embedded HIL</p>
+          <a href="https://github.com/ARYA-mgc" target="_blank" rel="noopener" class="team-github">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            @ARYA-mgc
+          </a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/ashwinr-act-cit.png" alt="Ashwin R" class="team-avatar" loading="lazy">
+          <h4>Ashwin R</h4>
+          <p class="team-role">Control Systems &amp; ADCS</p>
+          <a href="https://github.com/ashwinr-act-cit" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @ashwinr-act-cit</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/Nithi-tech.png" alt="Nithivalavan N" class="team-avatar" loading="lazy">
+          <h4>Nithivalavan N</h4>
+          <p class="team-role">Simulation &amp; Software Dev</p>
+          <a href="https://github.com/Nithi-tech" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @Nithi-tech</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/jayarajMd.png" alt="Jayaraj M" class="team-avatar" loading="lazy">
+          <h4>Jayaraj M</h4>
+          <p class="team-role">Hardware &amp; Power Systems</p>
+          <a href="https://github.com/jayarajMd" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @jayarajMd</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/vishal-r07.png" alt="Vishal R" class="team-avatar" loading="lazy">
+          <h4>Vishal Meyyappan R</h4>
+          <p class="team-role">Telemetry &amp; Comms</p>
+          <a href="https://github.com/vishal-r07" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @vishal-r07</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/ajiesheniyan57.png" alt="Ajiesh" class="team-avatar" loading="lazy">
+          <h4>Ajiesh Eniyan</h4>
+          <p class="team-role">Contributor</p>
+          <a href="https://github.com/ajiesheniyan57" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @ajiesheniyan57</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/Ashwinkumar-k10.png" alt="Ashwinkumar" class="team-avatar" loading="lazy">
+          <h4>Ashwinkumar K</h4>
+          <p class="team-role">Contributor</p>
+          <a href="https://github.com/Ashwinkumar-k10" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @Ashwinkumar-k10</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/Dhineshwaran31.png" alt="Dhineshwaran" class="team-avatar" loading="lazy">
+          <h4>Dhineshwaran</h4>
+          <p class="team-role">Contributor</p>
+          <a href="https://github.com/Dhineshwaran31" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @Dhineshwaran31</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/Kishore-VS.png" alt="Kishore VS" class="team-avatar" loading="lazy">
+          <h4>Kishore VS</h4>
+          <p class="team-role">Contributor</p>
+          <a href="https://github.com/Kishore-VS" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @Kishore-VS</a>
+        </div>
+        <div class="team-card">
+          <img src="https://github.com/MADHUSUDAN133.png" alt="Madhusudan P" class="team-avatar" loading="lazy">
+          <h4>Madhusudan P</h4>
+          <p class="team-role">Contributor</p>
+          <a href="https://github.com/MADHUSUDAN133" target="_blank" rel="noopener" class="team-github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> @MADHUSUDAN133</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Reach Out</div>
+        <h2 class="section-title">Contact <span class="gradient-text">Us</span></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:cubedynamics.10@gmail.com">cubedynamics.10@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+            <div>
+              <h4>Location</h4>
+              <p>Chennai Institute of Technology<br>Chennai, Tamil Nadu, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></div>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/DynamiX-Labs" target="_blank" rel="noopener">DynamiX-Labs (Org)</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal-right" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <input type="text" id="contact-subject" placeholder="Collaboration inquiry">
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" placeholder="Tell us what you're working on..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; padding-top: 20px;">
+        <!-- Column 1: Brand -->
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="assets/logo.png" alt="DynamiX-Labs" style="width: 40px; height: 40px;">
+            <span style="font-family: var(--font-mono); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px;">Dynami<span>X</span>-Labs</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            A student-led research and development organization specializing in embedded systems, avionics, DSP, and space technology.
+          </p>
+        </div>
+
+        <!-- Column 2: Projects -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <h4 style="color: #fff; font-size: 1.05rem; margin-bottom: 8px;">Our Projects</h4>
+          <a href="project-gss.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: var(--transition-fast);" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-secondary)'">Ground Station Suite</a>
+          <a href="project-cubesat.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: var(--transition-fast);" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-secondary)'">CubeSat ADCS Simulation</a>
+          <a href="project-sdr.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: var(--transition-fast);" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-secondary)'">SDR Hardware Benchmark</a>
+          <a href="project-yapex.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: var(--transition-fast);" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-secondary)'">YAPEX Protocol</a>
+        </div>
+
+        <!-- Column 3: Contact & Socials -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <h4 style="color: #fff; font-size: 1.05rem; margin-bottom: 8px;">Connect</h4>
+          <a href="mailto:cubedynamics.10@gmail.com" style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: var(--transition-fast);" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            cubedynamics.10@gmail.com
+          </a>
+          <a href="https://github.com/DynamiX-Labs" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: var(--transition-fast);" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-secondary)'">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            DynamiX-Labs
+          </a>
+          <span style="display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 0.95rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Chennai Institute of Technology
+          </span>
+        </div>
+      </div>
+      <div class="footer-copyright" style="border-top: 1px solid var(--border-subtle); padding-top: 24px; text-align: center;">© 2026 DynamiX-Labs. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/starfield.js"></script>
+  <script src="js/counters.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

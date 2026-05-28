@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAPEX Protocol — DynamiX-Labs</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-header { padding: 180px 24px 80px; text-align: center; background: var(--gradient-hero); border-bottom: var(--border-subtle); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 24px; transition: var(--transition-fast); }
+    .back-link:hover { color: #fff; transform: translateX(-4px); }
+    .project-detail-content { max-width: 900px; margin: 0 auto; padding: 80px 24px; }
+    .project-detail-content h2 { font-size: 2rem; margin-top: 60px; margin-bottom: 24px; color: var(--accent-cyan); }
+    .project-detail-content p { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px; }
+    .project-detail-content ul { list-style: none; padding: 0; margin-bottom: 40px; }
+    .project-detail-content li { font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 12px; padding-left: 24px; position: relative; }
+    .project-detail-content li::before { content: '›'; position: absolute; left: 0; color: var(--accent-blue); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="DynamiX-Labs Logo"><span class="nav-brand-text">Dynami<span>X</span>-Labs</span>
+      </a>
+      <div class="nav-links"><a href="index.html">← Back to Home</a></div>
+    </div>
+  </nav>
+
+  <header class="project-header">
+    <a href="index.html" class="back-link">← Back to Projects</a>
+    <div class="project-status dev" style="margin: 0 auto 16px; width: fit-content;"><span class="status-dot"></span> In Development</div>
+    <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">YAPEX <span class="gradient-text">Protocol</span></h1>
+    <div class="project-tech" style="justify-content: center; margin-top: 24px;">
+      <span class="tech-tag">C</span><span class="tech-tag">Embedded</span><span class="tech-tag">Protocol Design</span><span class="tech-tag">CRC-16</span>
+    </div>
+  </header>
+
+  <main class="project-detail-content">
+    <h2>The Problem</h2>
+    <p>
+      In complex embedded environments—like rocket avionics stacks or multi-node satellite buses—standard communication protocols like I2C or raw UART lack the necessary reliability and determinism. Existing solutions like MAVLink are often too heavy or inflexible for bare-metal microcontroller environments with strict memory constraints.
+    </p>
+
+    <h2>The YAPEX Solution</h2>
+    <p>
+      YAPEX is a lightweight, strictly-defined binary communication protocol built for ultra-reliable inter-system telemetry and command exchange. It provides framing, addressing, payload specification, and integrity verification out of the box, with a memory footprint small enough to run on 8-bit microcontrollers.
+    </p>
+
+    <div style="margin: 40px 0; background: var(--bg-secondary); padding: 24px; border-radius: var(--radius-md); border: var(--border-subtle); box-shadow: 0 4px 30px rgba(0, 212, 255, 0.1);">
+      <img src="assets/screenshots/yapex-protocol.png" alt="YAPEX Protocol Architecture" style="width: 100%; border-radius: var(--radius-sm); object-fit: contain;">
+      <p style="margin: 16px 0 0; font-size: 0.95rem; text-align: center; color: var(--accent-cyan); font-family: var(--font-mono);">Protocol Data Flow Diagram</p>
+    </div>
+
+    <h2>Core Architecture</h2>
+    <ul>
+      <li><strong>Deterministic Framing:</strong> Every packet follows a strict header-payload-footer structure, ensuring predictable parsing times and zero dynamic memory allocation.</li>
+      <li><strong>Data Integrity:</strong> Hardware-accelerated CRC-16 checksums guarantee that corrupted packets are silently dropped before they can affect control loops.</li>
+      <li><strong>Transport Agnostic:</strong> The protocol layer is decoupled from the physical layer, meaning identical code can run over UART, SPI, CAN bus, or even UDP sockets in HIL simulations.</li>
+      <li><strong>Code Generation:</strong> Developers define messages in a YAML schema, and a python script automatically generates the optimized C serialization/deserialization headers, eliminating boilerplate and human error.</li>
+    </ul>
+
+    <div style="margin-top: 60px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="project-yapex.html" class="btn btn-primary">Repository (Coming Soon)</a>
+      <a href="https://github.com/DynamiX-Labs/YAPEX/issues" target="_blank" rel="noopener" class="btn btn-secondary">Browse Open Issues</a>
+    </div>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-copyright">© 2026 DynamiX-Labs. All rights reserved.</div></div></footer>
+</body>
+</html>

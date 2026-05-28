@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — DynamiX-Labs</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { padding-top: 100px; }
+    .admin-container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+    .admin-card { background: var(--bg-secondary); border: var(--border-subtle); border-radius: var(--radius-md); padding: 40px; box-shadow: 0 4px 30px rgba(0,0,0,0.3); max-width: 400px; margin: 0 auto; }
+    .admin-card h2 { text-align: center; margin-bottom: 24px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-secondary); }
+    .form-group input { width: 100%; padding: 12px; background: var(--bg-tertiary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: #fff; font-family: var(--font-mono); }
+    .btn-full { width: 100%; text-align: center; margin-top: 10px; }
+    .alert { padding: 12px; border-radius: var(--radius-sm); margin-bottom: 20px; display: none; }
+    .alert.error { background: rgba(255, 60, 60, 0.1); border: 1px solid rgba(255, 60, 60, 0.3); color: #ff5555; }
+    .alert.success { background: rgba(60, 255, 120, 0.1); border: 1px solid rgba(60, 255, 120, 0.3); color: #55ff77; }
+    .link-text { display: block; text-align: center; margin-top: 16px; color: var(--accent-cyan); cursor: pointer; font-size: 0.9rem; }
+    
+    #dashboard-view { display: none; }
+    .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+    .message-card { background: var(--bg-secondary); border: var(--border-subtle); border-radius: var(--radius-sm); padding: 24px; margin-bottom: 16px; }
+    .message-header { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid var(--bg-tertiary); padding-bottom: 12px; }
+    .message-meta { font-size: 0.9rem; color: var(--text-secondary); }
+    .message-subject { font-weight: 600; color: var(--accent-cyan); font-size: 1.1rem; }
+    .message-body { font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap; }
+    
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 1000; }
+    .modal { background: var(--bg-primary); padding: 32px; border-radius: var(--radius-md); border: var(--border-subtle); width: 100%; max-width: 400px; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo.png" alt="DynamiX-Labs Logo">
+        <span class="nav-brand-text">Dynami<span>X</span>-Labs Admin</span>
+      </a>
+      <div class="nav-links" id="nav-logout" style="display:none;">
+        <button id="btn-change-password" class="btn" style="background:transparent;border:1px solid var(--border-subtle);padding:8px 16px;margin-right:12px;">Change Password</button>
+        <button id="btn-logout" class="btn btn-secondary" style="padding: 8px 16px;">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="admin-container">
+    
+    <!-- LOGIN VIEW -->
+    <div id="login-view" class="admin-card">
+      <h2>Admin Login</h2>
+      <div id="login-alert" class="alert"></div>
+      <form id="login-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Login</button>
+      </form>
+      <a class="link-text" id="link-forgot">Forgot Password?</a>
+    </div>
+
+    <!-- FORGOT PASSWORD VIEW -->
+    <div id="forgot-view" class="admin-card" style="display: none;">
+      <h2>Reset Password</h2>
+      <div id="forgot-alert" class="alert"></div>
+      <p style="text-align: center; margin-bottom: 20px; color: var(--text-secondary); font-size: 0.9rem;">Enter your email to receive a reset link.</p>
+      <form id="forgot-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="forgot-email" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Send Reset Link</button>
+      </form>
+      <a class="link-text" id="link-login">Back to Login</a>
+    </div>
+    
+    <!-- RESET PASSWORD VIEW (Via Email Link) -->
+    <div id="reset-view" class="admin-card" style="display: none;">
+      <h2>Set New Password</h2>
+      <div id="reset-alert" class="alert"></div>
+      <form id="reset-form">
+        <div class="form-group">
+          <label>New Password (min 8 chars)</label>
+          <input type="password" id="reset-password" required minlength="8">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Update Password</button>
+      </form>
+    </div>
+
+    <!-- DASHBOARD VIEW -->
+    <div id="dashboard-view">
+      <div class="dashboard-header">
+        <h2>Inbox Messages</h2>
+        <button id="btn-refresh" class="btn btn-secondary">Refresh</button>
+      </div>
+      <div id="messages-container"></div>
+    </div>
+
+  </div>
+
+  <!-- CHANGE PASSWORD MODAL (Forced on first login or manual) -->
+  <div class="modal-overlay" id="change-pw-modal">
+    <div class="modal">
+      <h3 style="margin-bottom: 20px;">Change Password</h3>
+      <p id="change-pw-msg" style="color:var(--accent-cyan); font-size:0.9rem; margin-bottom: 16px; display:none;">Security Check: Please change your default password to continue.</p>
+      <div id="change-pw-alert" class="alert"></div>
+      <form id="change-pw-form">
+        <div class="form-group">
+          <label>Old Password</label>
+          <input type="password" id="change-old-pw" required>
+        </div>
+        <div class="form-group">
+          <label>New Password (min 8 chars)</label>
+          <input type="password" id="change-new-pw" required minlength="8">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Update</button>
+        <button type="button" id="btn-cancel-change" class="btn btn-full" style="background:transparent; margin-top:8px;">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
