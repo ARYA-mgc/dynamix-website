@@ -170,8 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('contact-message').value;
 
       try {
-        // Change this to your live backend URL once deployed (e.g., 'https://dynamix-backend.up.railway.app/api/contact')
-        const res = await fetch('http://localhost:3001/api/contact', {
+        const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, subject, message })

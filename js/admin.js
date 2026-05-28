@@ -1,5 +1,4 @@
-// Change this to your live backend URL once deployed (e.g., 'https://dynamix-backend.up.railway.app/api')
-const API_BASE = 'http://localhost:3001/api';
+const API_BASE = '/api';
 
 const el = (id) => document.getElementById(id);
 
